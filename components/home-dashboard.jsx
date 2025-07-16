@@ -11,7 +11,18 @@ export default function HomeDashboard({ user, onPageChange }) {
     year: "numeric",
     month: "long",
     day: "numeric",
+    
   })
+const displayName = user?.name || user?.email?.split("@")[0] || "Guest"
+
+if (!user) {
+  return (
+    <div className="text-center py-16 text-gray-600 italic">
+      Loading your dashboard...
+    </div>
+  )
+}
+  
 
   return (
     <div className="max-w-6xl mx-auto space-y-8">
@@ -26,7 +37,8 @@ export default function HomeDashboard({ user, onPageChange }) {
         )}
 
         <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-700 to-indigo-700 bg-clip-text text-transparent">
-          Welcome back, {user.name}!
+          Welcome back, {displayName}!
+
         </h1>
         <p className="text-xl text-gray-600">{currentDate}</p>
         <p className="text-lg text-purple-600 font-medium">

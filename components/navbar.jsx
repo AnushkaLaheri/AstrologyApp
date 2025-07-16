@@ -58,8 +58,7 @@ export default function Navbar({ user, currentPage, onPageChange }) {
               <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                 <Avatar className="h-10 w-10">
                   <AvatarFallback className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
-                    {user?.name?.charAt(0).toUpperCase() || user?.email?.charAt(0).toUpperCase() || "U"}
-                  </AvatarFallback>
+                  {user?.name?.[0]?.toUpperCase() || user?.email?.[0]?.toUpperCase() || "U"}                  </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
